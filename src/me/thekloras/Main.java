@@ -1,9 +1,6 @@
 package me.thekloras;
 
-import java.util.Collections;
 import java.util.Random;
-
-import static java.util.Collections.swap;
 
 public class Main {
 
@@ -14,10 +11,13 @@ public class Main {
         isvestiMasyva();
         apkeisti();
         isvestiMasyva();
-        System.out.println(vidurkis());
-        System.out.println(kiekis());
-        System.out.println(min());
-        System.out.println(max());
+        System.out.println("Vidurkis: " + vidurkis());
+        System.out.println("Kiekis: " + kiekis());
+        System.out.println("Minimalus: " + min());
+        //System.out.println(minIndex());
+        System.out.println("Maksimalus: " + max());
+        //System.out.println(maxIndex());
+        System.out.println("Suma: " + suma());
     }
 
     public static void random() {
@@ -45,15 +45,19 @@ public class Main {
         vidurkis = vidurkis/20;
         return vidurkis;
     }
+    public static double suma(){
+        double suma = 0;
+        for (int i = 0;i<20;i++){
+            suma = suma+masyvas[i];
+        }
+        return suma;
+    }
     public static int kiekis(){
-        int kiekis=0;
-        kiekis = masyvas.length;
-        return kiekis;
+        return masyvas.length;
     }
     public static void apkeisti(){
-        int x;
-        x = min();
-        masyvas[minIndex()] = masyvas[maxIndex()];
+        int x = min();
+        masyvas[minIndex()] = max();
         masyvas[maxIndex()] = x;
     }
     public static int min(){
@@ -70,6 +74,7 @@ public class Main {
         int minIndex = 0;
         for(int i = 0;i<20;i++){
             if (masyvas[i]<min){
+                min = masyvas[i];
                 minIndex = i;
             }
         }
@@ -89,6 +94,7 @@ public class Main {
         int maxIndex = 0;
         for(int i = 0;i<20;i++){
             if (masyvas[i]>max){
+                max = masyvas[i];
                 maxIndex = i;
             }
         }
