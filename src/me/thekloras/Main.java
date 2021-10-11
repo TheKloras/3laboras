@@ -19,6 +19,7 @@ public class Main {
         System.out.println("Maksimalus: " + max());
         //System.out.println(maxIndex());
         System.out.println("Suma: " + suma());
+        System.out.println("Minimalus neigiamas lyginis skaičius: " + minNeigiamas());
     }
 
     /**
@@ -27,10 +28,10 @@ public class Main {
     public static void random() {
         Random rand = new Random();
         for (int i = 0; i < 10; i++) {
-            masyvas[i] = rand.nextInt(500);
+            masyvas[i] = rand.nextInt(100);
         }
         for (int i = 10; i < 20; i++) {
-            masyvas[i] = rand.nextInt(500) - 500;
+            masyvas[i] = rand.nextInt(100) - 100;
         }
     }
 
@@ -53,7 +54,8 @@ public class Main {
     public static double vidurkis() {
         double vidurkis = 0;
         for (int i = 0; i < 20; i++) {
-            vidurkis = vidurkis + masyvas[i];
+            if (masyvas[i] % 2 == 0)
+                vidurkis = vidurkis + masyvas[i];
         }
         vidurkis = vidurkis / kiekis();
         return vidurkis;
@@ -66,8 +68,10 @@ public class Main {
      */
     public static double suma() {
         double suma = 0;
-        for (int i = 0; i < 20; i++) {
-            suma = suma + masyvas[i];
+        for (int i = 0; i < masyvas.length; i++) {
+            if (masyvas[i] % 2 == 0) {
+                suma = suma + masyvas[i];
+            }
         }
         return suma;
     }
@@ -78,7 +82,13 @@ public class Main {
      * @return gražinamas kiekis,ilgis
      */
     public static int kiekis() {
-        return masyvas.length;
+        int kiekis = 0;
+        for (int i = 0; i < masyvas.length; i++) {
+            if (masyvas[i] % 2 == 0) {
+                kiekis++;
+            }
+        }
+        return kiekis;
     }
 
     /**
@@ -152,5 +162,16 @@ public class Main {
             }
         }
         return maxIndex;
+    }
+    public static int minNeigiamas(){
+        int minNeigiamas = Integer.MAX_VALUE;
+        for (int i = 0;i< masyvas.length;i++){
+            if (masyvas[i]%2==0){
+                if (masyvas[i]<minNeigiamas){
+                    minNeigiamas=masyvas[i];
+                }
+            }
+        }
+        return minNeigiamas;
     }
 }
