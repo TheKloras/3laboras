@@ -163,12 +163,18 @@ public class Main {
         }
         return maxIndex;
     }
-    public static int minNeigiamas(){
+
+    /**
+     * Funkcija apskaičiuojanti mažiausia lyginį neigiama skačių
+     *
+     * @return gražinamas mažiausias neigiamas lyginis skaičius
+     */
+    public static int minNeigiamas() {
         int minNeigiamas = Integer.MAX_VALUE;
-        for (int i = 0;i< masyvas.length;i++){
-            if (masyvas[i]%2==0){
-                if (masyvas[i]<minNeigiamas){
-                    minNeigiamas=masyvas[i];
+        for (int i = 0; i < masyvas.length; i++) {
+            if (masyvas[i] % 2 == 0) {
+                if (masyvas[i] < minNeigiamas) {
+                    minNeigiamas = masyvas[i];
                 }
             }
         }
