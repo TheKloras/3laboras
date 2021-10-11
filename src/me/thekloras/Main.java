@@ -11,6 +11,7 @@ public class Main {
         random();
         isvestiMasyva();
         apkeisti();
+        System.out.println("Po apkeitimo");
         isvestiMasyva();
         System.out.println("Vidurkis: " + vidurkis());
         System.out.println("Kiekis: " + kiekis());
@@ -27,10 +28,10 @@ public class Main {
      */
     public static void random() {
         Random rand = new Random();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < masyvas.length/2; i++) {
             masyvas[i] = rand.nextInt(100);
         }
-        for (int i = 10; i < 20; i++) {
+        for (int i = 10; i < masyvas.length; i++) {
             masyvas[i] = rand.nextInt(100) - 100;
         }
     }
@@ -40,7 +41,7 @@ public class Main {
      */
     public static void isvestiMasyva() {
         System.out.print("Masyvas: ");
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < masyvas.length; i++) {
             System.out.print(masyvas[i] + " ");
         }
         System.out.println();
@@ -53,7 +54,7 @@ public class Main {
      */
     public static double vidurkis() {
         double vidurkis = 0;
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < masyvas.length; i++) {
             if (masyvas[i] % 2 == 0)
                 vidurkis = vidurkis + masyvas[i];
         }
@@ -107,7 +108,7 @@ public class Main {
      */
     public static int min() {
         int min = Integer.MAX_VALUE;
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < masyvas.length; i++) {
             if (masyvas[i] < min) {
                 min = masyvas[i];
             }
@@ -123,7 +124,7 @@ public class Main {
     public static int minIndex() {
         int min = Integer.MAX_VALUE;
         int minIndex = 0;
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < masyvas.length; i++) {
             if (masyvas[i] < min) {
                 min = masyvas[i];
                 minIndex = i;
@@ -139,7 +140,7 @@ public class Main {
      */
     public static int max() {
         int max = Integer.MIN_VALUE;
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < masyvas.length; i++) {
             if (masyvas[i] > max) {
                 max = masyvas[i];
             }
@@ -155,7 +156,7 @@ public class Main {
     public static int maxIndex() {
         int max = Integer.MIN_VALUE;
         int maxIndex = 0;
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < masyvas.length; i++) {
             if (masyvas[i] > max) {
                 max = masyvas[i];
                 maxIndex = i;
